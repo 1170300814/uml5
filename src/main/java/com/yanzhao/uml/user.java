@@ -17,13 +17,23 @@ import org.springframework.stereotype.Component;
 public class user {
     @Autowired
     showinfo showinfo;
+    @Autowired
+    book book;
 
-    public void borrowbook(String bookid){
+    String username;
 
+    public void borrowbook(String bookname,String username){
+        book.bookbeborrowed(bookname,username);
 
+    }
+
+    public void borrowbeback(String bookname,String username){
+        book.bookbeback(bookname,username);
     }
 
     public void showborrowedbook(String username){
         System.out.println(showinfo.showborrowedbook(username));
     }
+
+
 }

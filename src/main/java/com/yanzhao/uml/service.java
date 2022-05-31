@@ -15,7 +15,18 @@ public class service implements serviceapi{
 
     @Override
     public void deleteuser(String username) {
-
+        jdbcTemplate.update("delete from users where username=?",username);
     }
+
+    @Override
+    public void insertbook(String bookname, String booktype, String author, String publics, int booknum) {
+        jdbcTemplate.update("insert into books(bookname,booktype,author,publics,booknum) values (?,?,?,?,?)",bookname,booktype,author,publics,booknum);
+    }
+
+    @Override
+    public void deletebook(String bookname) {
+        jdbcTemplate.update("delete from books where bookname=?",bookname);
+    }
+
 
 }
